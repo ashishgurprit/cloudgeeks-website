@@ -1,5 +1,6 @@
 import { Linkedin, Github, Mail, ArrowUp } from 'lucide-react';
-import { Link } from 'react-scroll';
+import { Link as ScrollLink } from 'react-scroll';
+import { Link as RouterLink } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -12,12 +13,16 @@ const Footer = () => {
             <p className="text-xs font-bold text-gray-500 uppercase tracking-widest">
               A Division of
             </p>
-            {/* Using GTS Logo Light for dark background */}
-            <img
-              src="/assets/gts-logo-light.png"
-              alt="Ganda Tech Services"
-              className="h-16 w-auto opacity-80 hover:opacity-100 transition-opacity"
-            />
+
+            {/* GTS Logo - Links to /gts page */}
+            <RouterLink to="/gts" className="group cursor-pointer">
+              <img
+                src="/assets/gts-logo-light.png"
+                alt="Ganda Tech Services"
+                className="h-16 w-auto opacity-80 group-hover:opacity-100 transition-opacity"
+              />
+            </RouterLink>
+
             <div className="flex flex-col text-sm text-gray-500">
               <span>© {new Date().getFullYear()} Ganda Tech Services.</span>
               <span>Engineering Intelligence.</span>
@@ -54,14 +59,14 @@ const Footer = () => {
               </a>
             </div>
 
-            <Link
+            <ScrollLink
               to="hero"
               smooth={true}
               duration={1000}
               className="flex items-center gap-2 text-xs text-gray-600 hover:text-white cursor-pointer transition-colors"
             >
               Back to Top <ArrowUp className="w-3 h-3" />
-            </Link>
+            </ScrollLink>
           </div>
 
         </div>

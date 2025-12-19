@@ -1,26 +1,15 @@
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Expertise from './components/Expertise';
-import Products from './components/Products';
-import Insights from './components/Insights';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
+import GTSPage from './components/GTSPage';
 
 function App() {
   return (
-    <div className="bg-charcoal min-h-screen text-white font-sans selection:bg-electric-violet selection:text-white">
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Expertise />
-        <Products />
-        <Insights />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/gts" element={<GTSPage />} />
+      </Routes>
+    </Router>
   );
 }
 
