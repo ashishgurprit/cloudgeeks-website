@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { ShoppingBag, HeartPulse, Hammer, Film, ArrowRight, Check } from 'lucide-react';
+import { ShoppingBag, HeartPulse, Hammer, Film, ArrowRight, Check, X, FileText } from 'lucide-react';
 
 const Industries = () => {
   const [activeTab, setActiveTab] = useState(0);
+  const [showModal, setShowModal] = useState(false);
 
   const packages = [
     {
@@ -11,14 +12,16 @@ const Industries = () => {
       name: 'Intelligent Operations Suite',
       icon: ShoppingBag,
       color: 'text-tech-cyan',
-      bgColor: 'bg-tech-cyan',
+      bg: 'bg-tech-cyan',
       desc: 'AI-powered predictive analytics for inventory, demand, and customer behavior.',
-      features: [
-        'Customer Service Automation',
-        'Predictive Inventory Analytics',
-        'Automated Compliance Monitoring',
-        'Real-time Performance Dashboards'
-      ]
+      features: ['Customer Service Automation', 'Predictive Inventory Analytics', 'Automated Compliance Monitoring', 'Real-time Dashboards'],
+      caseStudy: {
+        title: "Predictive Inventory for Multi-Outlet Retail",
+        client: "Sydney Franchise Chain (50+ Locations)",
+        challenge: "Client was losing $15k/month/location in spoiled stock while facing stockouts on weekends.",
+        solution: "Deployed a custom demand forecasting model using historical sales data and local event APIs to auto-adjust procurement orders.",
+        stats: ["35% reduction in spoilage", "18% revenue increase", "Automated procurement"]
+      }
     },
     {
       id: 1,
@@ -26,14 +29,16 @@ const Industries = () => {
       name: 'Customer Experience Transformer',
       icon: HeartPulse,
       color: 'text-electric-violet',
-      bgColor: 'bg-electric-violet',
+      bg: 'bg-electric-violet',
       desc: 'Digitizing the patient and student journey with automated scheduling and documentation.',
-      features: [
-        'Patient/Student Journey Mapping',
-        'Automated Scheduling Systems',
-        'Digital Forms & Documentation',
-        'Integrated Communication Platform'
-      ]
+      features: ['Patient/Student Journey Mapping', 'Automated Scheduling', 'Digital Forms', 'Integrated Comms'],
+      caseStudy: {
+        title: "Digitizing the Patient Journey",
+        client: "Specialist Medical Center, Norwest",
+        challenge: "Staff spent 60% of time on manual data entry, causing 45-minute patient wait times.",
+        solution: "Built a secure, iPad-based intake system that writes directly to the CRM via encrypted API, triggering automated follow-ups.",
+        stats: ["Zero manual data entry", "40% reduced wait time", "HIPAA/Privacy Compliant"]
+      }
     },
     {
       id: 2,
@@ -41,14 +46,16 @@ const Industries = () => {
       name: 'Service Industry Optimizer',
       icon: Hammer,
       color: 'text-gts-orange',
-      bgColor: 'bg-gts-orange',
+      bg: 'bg-gts-orange',
       desc: 'End-to-end project management and resource optimization for field teams.',
-      features: [
-        'Project Management Automation',
-        'Real-time Progress Tracking',
-        'Resource Optimization',
-        'Compliance & Safety Management'
-      ]
+      features: ['Project Automation', 'Real-time Progress Tracking', 'Resource Optimization', 'Safety Compliance'],
+      caseStudy: {
+        title: "Real-Time Field Asset Tracking",
+        client: "Commercial HVAC Installer",
+        challenge: "No real-time visibility on field teams. Compliance docs were lost, leading to payment delays.",
+        solution: "Deployed a mobile app for field teams to log progress and upload geotagged compliance photos in real-time.",
+        stats: ["100% compliance rate", "20% increase in billable hours", "Instant payment verification"]
+      }
     },
     {
       id: 3,
@@ -56,14 +63,16 @@ const Industries = () => {
       name: 'Media Accelerator',
       icon: Film,
       color: 'text-white',
-      bgColor: 'bg-white',
+      bg: 'bg-white',
       desc: 'Automated content workflows and digital asset management for high-velocity teams.',
-      features: [
-        'Content Management Systems',
-        'Automated Workflow Tools',
-        'Digital Asset Management',
-        'Customer Engagement Platforms'
-      ]
+      features: ['Content Management', 'Automated Workflows', 'Digital Asset Management', 'Customer Engagement'],
+      caseStudy: {
+        title: "Automating High-Velocity Publishing",
+        client: "Digital News Agency",
+        challenge: "Writers spent 4 hours per article on research, capping output at 2 articles/day.",
+        solution: "Integrated ContentSage architecture to pre-generate topic clusters, research briefs, and SEO drafts.",
+        stats: ["3x content output", "Ranked #1 for 40+ keywords", "Automated Interlinking"]
+      }
     }
   ];
 
@@ -76,13 +85,13 @@ const Industries = () => {
             Industry Specific <span className="text-gts-gradient">Solutions</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            We don't offer generic code. We deliver tailored solution packages designed for your specific operational challenges.
+            We deliver tailored solution packages designed for your specific operational challenges.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[350px_1fr] gap-12">
 
-          {/* Left: Menu */}
+          {/* Menu */}
           <div className="flex flex-col gap-4">
             {packages.map((pkg, index) => (
               <button
@@ -104,10 +113,9 @@ const Industries = () => {
             ))}
           </div>
 
-          {/* Right: Content Card */}
+          {/* Content Card */}
           <div className="relative">
-             {/* Glow Effect */}
-             <div className={`absolute inset-0 blur-[100px] opacity-20 transition-colors duration-500 ${packages[activeTab].bgColor}`}></div>
+             <div className={`absolute inset-0 blur-[100px] opacity-20 transition-colors duration-500 ${packages[activeTab].bg}`}></div>
 
             <div className="relative bg-black/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 h-full flex flex-col justify-center">
 
@@ -138,17 +146,73 @@ const Industries = () => {
                 <div className="text-sm text-gray-500">
                     Includes: Implementation | Training | 24/7 Support
                 </div>
-                <button className="px-8 py-3 bg-white text-black font-bold rounded-full hover:bg-gray-200 transition-colors flex items-center gap-2">
+                <button
+                  onClick={() => setShowModal(true)}
+                  className="px-8 py-3 bg-white text-black font-bold rounded-full hover:bg-gray-200 transition-colors flex items-center gap-2"
+                >
                     View Case Study <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
-
             </div>
           </div>
-
         </div>
-
       </div>
+
+      {/* CASE STUDY MODAL */}
+      {showModal && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={() => setShowModal(false)}></div>
+
+          <div className="relative bg-geeks-dark border border-white/10 rounded-3xl max-w-2xl w-full p-8 md:p-10 shadow-2xl animate-[fadeIn_0.2s_ease-out]">
+            <button
+              onClick={() => setShowModal(false)}
+              className="absolute top-4 right-4 p-2 text-gray-400 hover:text-white hover:bg-white/10 rounded-full transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            <div className="flex items-center gap-3 mb-6">
+               <FileText className={`w-6 h-6 ${packages[activeTab].color}`} />
+               <span className="text-xs font-bold uppercase tracking-widest text-gray-400">Project Report</span>
+            </div>
+
+            <h3 className="text-3xl font-heading font-bold text-white mb-2">
+              {packages[activeTab].caseStudy.title}
+            </h3>
+            <p className={`text-sm font-semibold mb-6 ${packages[activeTab].color}`}>
+              Client: {packages[activeTab].caseStudy.client}
+            </p>
+
+            <div className="space-y-6 text-gray-300 mb-8">
+              <div>
+                <h4 className="text-white font-bold mb-2">The Challenge</h4>
+                <p className="leading-relaxed text-sm">{packages[activeTab].caseStudy.challenge}</p>
+              </div>
+              <div>
+                <h4 className="text-white font-bold mb-2">The Engineering Solution</h4>
+                <p className="leading-relaxed text-sm">{packages[activeTab].caseStudy.solution}</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {packages[activeTab].caseStudy.stats.map((stat, i) => (
+                <div key={i} className="bg-white/5 border border-white/5 p-4 rounded-xl text-center">
+                  <span className={`block font-bold text-sm ${packages[activeTab].color}`}>{stat}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-white/10 text-center">
+               <button
+                 onClick={() => { setShowModal(false); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
+                 className="text-white hover:underline text-sm font-medium"
+               >
+                 Discuss a similar project for your business
+               </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
