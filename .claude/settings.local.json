@@ -9,7 +9,14 @@
       "Bash(npm ls:*)",
       "Bash(npm run build:*)",
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nInitial commit: CloudGeeks website\n\n- React 19 + TypeScript + Vite + Tailwind CSS v4\n- Dark \"Engine Room\" theme with Electric Violet/Tech Cyan accents\n- Components: Navbar, Hero, About, Expertise, Products, Insights, Contact, Footer\n- SEO optimized for Bella Vista/Hills District keywords\n- CSS-based Saya logo \\(Montserrat Bold + gradient shadow\\)\n- Contact form ready for Zapier/Make.com webhook\n- Railway deployment configured\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(gh auth status:*)",
+      "Bash(gh repo create:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(railway version:*)",
+      "Bash(git commit:*)"
     ]
   }
 }
