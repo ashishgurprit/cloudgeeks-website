@@ -18,7 +18,10 @@ const Footer = () => {
             <RouterLink to="/gts" className="group cursor-pointer">
               <img
                 src="/assets/gts-logo-light.png"
-                alt="Ganda Tech Services"
+                alt="Ganda Tech Services - Engineering Intelligence for SMBs in Sydney"
+                width={160}
+                height={64}
+                loading="lazy"
                 className="h-16 w-auto opacity-80 group-hover:opacity-100 transition-opacity"
               />
             </RouterLink>

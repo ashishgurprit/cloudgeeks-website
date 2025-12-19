@@ -42,7 +42,10 @@ const Products = () => {
               <a href="https://write-gts.cchk.info" target="_blank" rel="noopener noreferrer" className="relative bg-white/5 border border-white/10 rounded-3xl p-12 flex items-center justify-center aspect-video hover:bg-white/10 transition-all duration-500 group block">
                 <img
                   src="/assets/contentsage-logo.png"
-                  alt="ContentSage Logo"
+                  alt="ContentSage - AI-Powered SEO Content Writing Platform by GTS"
+                  width={128}
+                  height={128}
+                  loading="lazy"
                   className="w-32 h-32 object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-500"
                 />
               </a>

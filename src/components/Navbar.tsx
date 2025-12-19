@@ -35,7 +35,9 @@ const Navbar = () => {
               {/* Using 'cloudgeek logo.png' - inverted to white */}
               <img
                 src="/assets/cloudgeek logo.png"
-                alt="CloudGeeks"
+                alt="CloudGeeks - AI Engineering & Cloud Consultancy Bella Vista Sydney"
+                width={160}
+                height={56}
                 className="h-14 w-auto brightness-0 invert opacity-100 hover:opacity-80 transition-opacity"
               />
             </Link>

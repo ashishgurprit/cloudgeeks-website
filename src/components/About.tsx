@@ -52,7 +52,10 @@ const About = () => {
               {/* GTS Logo Image */}
               <img
                 src="/assets/gts-logo.png"
-                alt="Ganda Tech Services"
+                alt="Ganda Tech Services - Parent Company of CloudGeeks Software Engineering Consultancy"
+                width={192}
+                height={80}
+                loading="lazy"
                 className="w-48 h-auto object-contain mb-8 group-hover:scale-105 transition-transform"
               />
 

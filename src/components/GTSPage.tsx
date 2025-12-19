@@ -19,7 +19,7 @@ const GTSPage = () => {
             <span className="font-heading font-bold uppercase text-sm tracking-widest">Return to CloudGeeks</span>
           </Link>
 
-          <img src="/assets/gts-logo-light.png" alt="GTS" className="h-10 w-auto opacity-80" />
+          <img src="/assets/gts-logo-light.png" alt="Ganda Tech Services Logo" width={100} height={40} className="h-10 w-auto opacity-80" />
         </div>
       </nav>
 
