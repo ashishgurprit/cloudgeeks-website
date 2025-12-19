@@ -1,111 +1,68 @@
-import { motion } from 'framer-motion';
-import { Building2, Users, Award } from 'lucide-react';
+import { CheckCircle2, MapPin } from 'lucide-react';
 
 const About = () => {
-  const stats = [
-    { icon: Building2, value: '50+', label: 'Projects Delivered' },
-    { icon: Users, value: '30+', label: 'Happy Clients' },
-    { icon: Award, value: '10+', label: 'Years Combined Experience' },
-  ];
-
   return (
-    <section id="about" className="py-24 bg-charcoal-light relative overflow-hidden">
-      {/* Background Accent */}
-      <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-tech-cyan/5 blur-[100px] pointer-events-none"></div>
-
+    <section id="about" className="py-24 bg-charcoal relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6">
-              <span className="text-gray-300 text-xs font-semibold tracking-wide uppercase">
-                A GTS Company
-              </span>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+          {/* Left Column: The Narrative */}
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-6 w-fit">
+              <MapPin className="w-4 h-4 text-tech-cyan" />
+              <span className="text-xs font-bold text-gray-300 tracking-wide uppercase">Bella Vista & Norwest</span>
             </div>
 
-            <h2 className="font-heading font-bold text-3xl md:text-5xl text-white mb-6">
-              Engineering Excellence from{' '}
+            <h2 className="font-heading font-bold text-4xl text-white mb-6 leading-tight">
+              Engineering Excellence from <br />
               <span className="text-gradient">Sydney's Hills District</span>
             </h2>
-
-            <p className="text-gray-400 text-lg mb-6 leading-relaxed">
-              CloudGeeks is the technology arm of <span className="text-white font-medium">Ganda Tech Services (GTS)</span>,
-              a Sydney-based consultancy founded in the heart of Bella Vista's Norwest Business Park.
+            <p className="text-lg text-gray-400 mb-6 leading-relaxed">
+              CloudGeeks is the specialized engineering arm of <span className="text-white font-semibold">Ganda Tech Services (GTS)</span>.
+              We are a Sydney-based consultancy located in the heart of Bella Vista / Norwest Business Park.
+            </p>
+            <p className="text-lg text-gray-400 mb-8 leading-relaxed">
+              We bridge the gap between complex AI algorithms and practical business utility. As your local engineering partner, we offer direct access to architects and a laser focus on ROI.
             </p>
 
-            <p className="text-gray-400 text-lg mb-8 leading-relaxed">
-              We're not your typical dev shop. We're business-minded engineers who understand that
-              technology must serve strategy. Every solution we build is designed to digitize workloads,
-              automate growth, and create sustainable competitive advantages.
-            </p>
-
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-6">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="text-center"
-                >
-                  <stat.icon className="w-6 h-6 text-tech-cyan mx-auto mb-2" />
-                  <div className="text-2xl font-bold text-white">{stat.value}</div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wider">{stat.label}</div>
-                </motion.div>
+            <div className="space-y-4">
+              {[
+                "Local Sydney Engineering Team",
+                "Rapid Prototyping & MVP Development",
+                "Systems that grow with you for 1-2+ years"
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <CheckCircle2 className="text-tech-cyan w-6 h-6 flex-shrink-0" />
+                  <span className="text-gray-200">{item}</span>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
-          {/* Logo/Visual */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative"
-          >
-            <div className="relative aspect-square max-w-md mx-auto">
-              {/* Decorative rings */}
-              <div className="absolute inset-0 border border-white/5 rounded-full"></div>
-              <div className="absolute inset-8 border border-white/10 rounded-full"></div>
-              <div className="absolute inset-16 border border-electric-violet/20 rounded-full"></div>
+          {/* Right Column: The GTS Branding Card */}
+          <div className="relative">
+            {/* Decorative background blur */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-electric-violet to-tech-cyan rounded-3xl blur-2xl opacity-20 transform rotate-3"></div>
 
-              {/* Center logo */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="bg-charcoal p-8 rounded-3xl border border-white/10">
-                  <img
-                    src="/assets/gts-logo-dark.png"
-                    alt="GTS CloudGeeks"
-                    className="h-20 w-auto"
-                  />
-                </div>
+            <div className="relative bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl p-10 shadow-2xl flex flex-col items-center justify-center h-full min-h-[400px]">
+              <p className="text-sm font-bold text-gray-400 tracking-widest uppercase mb-8">Powered By</p>
+
+              {/* GTS Logo Image */}
+              <img
+                src="/assets/gts-logo.png"
+                alt="Ganda Tech Services"
+                className="w-48 h-auto object-contain mb-8"
+              />
+
+              <div className="text-center">
+                <span className="inline-block px-4 py-2 bg-white/10 rounded-lg text-sm text-gray-300 font-mono">
+                  est. 2024
+                </span>
               </div>
-
-              {/* Floating badges */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-8 right-8 bg-electric-violet/20 backdrop-blur-sm border border-electric-violet/30 rounded-xl px-4 py-2"
-              >
-                <span className="text-sm font-medium text-white">AI-Powered</span>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-8 left-8 bg-tech-cyan/20 backdrop-blur-sm border border-tech-cyan/30 rounded-xl px-4 py-2"
-              >
-                <span className="text-sm font-medium text-white">Cloud-Native</span>
-              </motion.div>
             </div>
-          </motion.div>
+          </div>
+
         </div>
       </div>
     </section>

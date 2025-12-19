@@ -17,7 +17,11 @@
       "Bash(git push:*)",
       "Bash(railway version:*)",
       "Bash(git commit:*)",
-      "Bash(railway:*)"
+      "Bash(railway:*)",
+      "Bash(curl:*)",
+      "Bash(nslookup:*)",
+      "Bash(wrangler:*)",
+      "Bash(npx wrangler:*)"
     ]
   }
 }
