@@ -17,31 +17,32 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Home', to: 'hero' },
     { name: 'Expertise', to: 'expertise' },
-    { name: 'Our Products', to: 'products' },
+    { name: 'Products', to: 'products' },
     { name: 'Insights', to: 'insights' },
     { name: 'Contact', to: 'contact' },
   ];
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      scrolled ? 'bg-charcoal/90 backdrop-blur-md shadow-lg py-4' : 'bg-transparent py-6'
+      scrolled ? 'bg-black/90 backdrop-blur-md border-b border-white/10 py-3' : 'bg-transparent py-6'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
 
-          {/* Logo Area */}
+          {/* LOGO AREA - CloudGeeks */}
           <div className="flex items-center flex-shrink-0 cursor-pointer">
-            <Link to="hero" smooth={true} duration={500} className="flex items-center gap-2">
+            <Link to="hero" smooth={true} duration={500} className="flex items-center gap-3">
+              {/* Using 'cloudgeek logo.png' - inverted to white */}
               <img
-                src="/assets/gts-logo-dark.png"
+                src="/assets/cloudgeek logo.png"
                 alt="CloudGeeks"
-                className="h-10 w-auto"
+                className="h-14 w-auto brightness-0 invert opacity-100 hover:opacity-80 transition-opacity"
               />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-10">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -50,19 +51,22 @@ const Navbar = () => {
                 duration={500}
                 spy={true}
                 offset={-80}
-                className="text-gray-300 hover:text-tech-cyan transition-colors cursor-pointer text-sm font-medium uppercase tracking-wider"
-                activeClass="text-tech-cyan"
+                className="text-gray-400 hover:text-white transition-colors cursor-pointer text-sm font-semibold uppercase tracking-widest hover:underline decoration-white underline-offset-8"
+                activeClass="text-white"
               >
                 {link.name}
               </Link>
             ))}
+
+            {/* CTA Button - White with subtle hover */}
             <Link
               to="contact"
               smooth={true}
               duration={500}
-              className="bg-accent-gradient text-white px-6 py-2 rounded-full font-semibold text-sm hover:opacity-90 transition-opacity cursor-pointer shadow-lg shadow-electric-violet/25"
+              className="group relative px-6 py-2 bg-white text-black rounded-full font-bold text-sm hover:bg-gray-200 transition-all cursor-pointer overflow-hidden"
             >
-              Start Project
+              <span className="relative z-10">Start Project</span>
+              <div className="absolute inset-0 bg-gts-gradient opacity-0 group-hover:opacity-10 transition-opacity"></div>
             </Link>
           </div>
 
@@ -70,19 +74,19 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-white p-2"
+              className="text-white p-2"
               aria-label="Toggle menu"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-charcoal/95 backdrop-blur-md border-t border-gray-800 absolute w-full">
-          <div className="px-4 pt-2 pb-4 space-y-1">
+        <div className="md:hidden bg-black border-t border-white/10 absolute w-full h-screen">
+          <div className="px-4 pt-8 pb-3 space-y-4">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -91,20 +95,11 @@ const Navbar = () => {
                 duration={500}
                 offset={-80}
                 onClick={() => setIsOpen(false)}
-                className="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-lg cursor-pointer transition-colors"
+                className="block text-2xl font-bold text-white py-4 border-b border-white/10"
               >
                 {link.name}
               </Link>
             ))}
-            <Link
-              to="contact"
-              smooth={true}
-              duration={500}
-              onClick={() => setIsOpen(false)}
-              className="block mt-4 bg-accent-gradient text-white px-4 py-3 rounded-full font-semibold text-center cursor-pointer"
-            >
-              Start Project
-            </Link>
           </div>
         </div>
       )}

@@ -1,49 +1,67 @@
-import { Linkedin, Github, Mail } from 'lucide-react';
+import { Linkedin, Github, Mail, ArrowUp } from 'lucide-react';
 import { Link } from 'react-scroll';
 
 const Footer = () => {
   return (
-    <footer className="bg-black py-12 border-t border-white/10">
+    <footer className="bg-black py-16 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-          {/* Logo & Copyright */}
-          <div className="flex flex-col items-center md:items-start">
-            <Link to="hero" smooth={true} duration={500} className="flex items-center gap-2 mb-4 cursor-pointer">
-              <img
-                src="/assets/gts-logo-dark.png"
-                alt="CloudGeeks"
-                className="h-8 w-auto"
-              />
+          {/* Left: GTS Parent Company Branding */}
+          <div className="flex flex-col items-center md:items-start space-y-6">
+            <p className="text-xs font-bold text-gray-500 uppercase tracking-widest">
+              A Division of
+            </p>
+            {/* Using GTS Logo Light for dark background */}
+            <img
+              src="/assets/gts-logo-light.png"
+              alt="Ganda Tech Services"
+              className="h-16 w-auto opacity-80 hover:opacity-100 transition-opacity"
+            />
+            <div className="flex flex-col text-sm text-gray-500">
+              <span>© {new Date().getFullYear()} Ganda Tech Services.</span>
+              <span>Engineering Intelligence.</span>
+            </div>
+          </div>
+
+          {/* Right: Socials & Back to Top */}
+          <div className="flex flex-col items-center md:items-end space-y-6">
+            <div className="flex gap-6">
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noreferrer"
+                className="p-3 rounded-full bg-white/5 hover:bg-white text-white hover:text-black transition-all"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noreferrer"
+                className="p-3 rounded-full bg-white/5 hover:bg-white text-white hover:text-black transition-all"
+                aria-label="GitHub"
+              >
+                <Github className="w-5 h-5" />
+              </a>
+              <a
+                href="mailto:hello@cloudgeeks.com.au"
+                className="p-3 rounded-full bg-white/5 hover:bg-white text-white hover:text-black transition-all"
+                aria-label="Email"
+              >
+                <Mail className="w-5 h-5" />
+              </a>
+            </div>
+
+            <Link
+              to="hero"
+              smooth={true}
+              duration={1000}
+              className="flex items-center gap-2 text-xs text-gray-600 hover:text-white cursor-pointer transition-colors"
+            >
+              Back to Top <ArrowUp className="w-3 h-3" />
             </Link>
-            <p className="text-gray-500 text-sm">
-              © {new Date().getFullYear()} Ganda Tech Services. All rights reserved.
-            </p>
-            <p className="text-gray-600 text-xs mt-1">
-              ABN: 123 456 789 | Sydney, Australia
-            </p>
-          </div>
-
-          {/* Navigation Links */}
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
-            <Link to="hero" smooth={true} duration={500} className="hover:text-white transition-colors cursor-pointer">Home</Link>
-            <Link to="expertise" smooth={true} duration={500} className="hover:text-white transition-colors cursor-pointer">Expertise</Link>
-            <Link to="products" smooth={true} duration={500} className="hover:text-white transition-colors cursor-pointer">Products</Link>
-            <Link to="insights" smooth={true} duration={500} className="hover:text-white transition-colors cursor-pointer">Insights</Link>
-            <Link to="contact" smooth={true} duration={500} className="hover:text-white transition-colors cursor-pointer">Contact</Link>
-          </div>
-
-          {/* Social Links */}
-          <div className="flex gap-4">
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all">
-              <Linkedin className="w-5 h-5" />
-            </a>
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all">
-              <Github className="w-5 h-5" />
-            </a>
-            <a href="mailto:hello@cloudgeeks.com.au" className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all">
-              <Mail className="w-5 h-5" />
-            </a>
           </div>
 
         </div>

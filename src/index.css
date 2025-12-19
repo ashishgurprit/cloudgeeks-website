@@ -1,23 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  /* Core Brand Colors */
-  --color-charcoal: #0D0D0D;
-  --color-charcoal-light: #1A1A1A;
+  /* Core CloudGeeks Monochrome */
+  --color-geeks-black: #000000;
+  --color-geeks-dark: #0a0a0a;
+  --color-geeks-gray: #e5e5e5;
+
+  /* Legacy colors (for compatibility) */
+  --color-charcoal: #000000;
+  --color-charcoal-light: #0a0a0a;
+
+  /* GTS Accents (Used sparingly) */
   --color-electric-violet: #8B5CF6;
   --color-tech-cyan: #06B6D4;
-
-  /* Accent Colors */
-  --color-accent-start: #8B5CF6;
-  --color-accent-end: #06B6D4;
-
-  /* Text Colors */
-  --color-text-primary: #FFFFFF;
-  --color-text-secondary: #9CA3AF;
-  --color-text-muted: #6B7280;
+  --color-gts-orange: #f59e0b;
 
   /* Fonts */
-  --font-family-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-family-heading: 'Montserrat', 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-family-sans: 'Inter', system-ui, sans-serif;
 }
 
@@ -27,12 +26,23 @@
     background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%);
   }
 
+  .bg-gts-gradient {
+    background: linear-gradient(90deg, #8B5CF6 0%, #f59e0b 50%, #06B6D4 100%);
+  }
+
   .bg-hero-gradient {
-    background: linear-gradient(180deg, #0D0D0D 0%, #1A1A1A 50%, #0D0D0D 100%);
+    background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
   }
 
   .text-gradient {
     background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gts-gradient {
+    background: linear-gradient(90deg, #8B5CF6 0%, #f59e0b 50%, #06B6D4 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -46,8 +56,8 @@ html {
 body {
   margin: 0;
   font-family: var(--font-family-sans);
-  background-color: var(--color-charcoal);
-  color: var(--color-text-primary);
+  background-color: #000000;
+  color: #ffffff;
 }
 
 /* Scrollbar Styling */
@@ -56,14 +66,14 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1A1A1A;
+  background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #374151;
+  background: #333333;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #4B5563;
+  background: #555555;
 }
