@@ -35,6 +35,15 @@ const Insights = () => {
               Deep dives into how we solve complex engineering problems.
             </p>
           </div>
+          <a
+            href="https://insights.cloudgeeks.com.au"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/10 rounded-full text-white font-semibold hover:bg-white/10 hover:border-tech-cyan/50 transition-all group"
+          >
+            Visit Knowledge Hub
+            <ArrowUpRight className="w-4 h-4 text-tech-cyan group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
+          </a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
