@@ -32,20 +32,20 @@ const Products = () => {
                 <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-electric-violet rounded-full"></span>Competitor Analysis</li>
                 <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-electric-violet rounded-full"></span>Automated Interlinking</li>
               </ul>
-              <a href="#contact" className="inline-flex items-center text-white font-semibold hover:text-electric-violet transition-colors group">
+              <a href="https://write-gts.cchk.info" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-white font-semibold hover:text-electric-violet transition-colors group">
                 Learn more about ContentSage <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
 
             <div className="order-1 lg:order-2 relative">
               <div className="absolute inset-0 bg-electric-violet/20 blur-[80px] rounded-full"></div>
-              <div className="relative bg-white/5 border border-white/10 rounded-3xl p-12 flex items-center justify-center aspect-video hover:bg-white/10 transition-all duration-500 group">
+              <a href="https://write-gts.cchk.info" target="_blank" rel="noopener noreferrer" className="relative bg-white/5 border border-white/10 rounded-3xl p-12 flex items-center justify-center aspect-video hover:bg-white/10 transition-all duration-500 group block">
                 <img
                   src="/assets/contentsage-logo.png"
                   alt="ContentSage Logo"
                   className="w-32 h-32 object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-500"
                 />
-              </div>
+              </a>
             </div>
           </div>
 
@@ -53,7 +53,7 @@ const Products = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
               <div className="absolute inset-0 bg-tech-cyan/20 blur-[80px] rounded-full"></div>
-              <div className="relative bg-white/5 border border-white/10 rounded-3xl p-12 flex items-center justify-center aspect-video hover:bg-white/10 transition-all duration-500 group">
+              <a href="https://translate-gts.cchk.info" target="_blank" rel="noopener noreferrer" className="relative bg-white/5 border border-white/10 rounded-3xl p-12 flex items-center justify-center aspect-video hover:bg-white/10 transition-all duration-500 group block">
                 {/* Saya CSS Logo */}
                 <div className="text-center group-hover:scale-110 transition-transform duration-500">
                   <span className="font-heading font-extrabold text-6xl text-white tracking-tighter">
@@ -61,7 +61,7 @@ const Products = () => {
                   </span>
                   <div className="h-1 w-full bg-gradient-to-r from-electric-violet to-tech-cyan mt-2 rounded-full opacity-50"></div>
                 </div>
-              </div>
+              </a>
             </div>
 
             <div>
@@ -80,7 +80,7 @@ const Products = () => {
                   <div className="text-xs text-gray-500 uppercase">Latency</div>
                 </div>
               </div>
-              <a href="#contact" className="inline-flex items-center text-white font-semibold hover:text-tech-cyan transition-colors group">
+              <a href="https://translate-gts.cchk.info" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-white font-semibold hover:text-tech-cyan transition-colors group">
                 Learn more about Saya <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>

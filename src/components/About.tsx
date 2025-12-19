@@ -1,4 +1,5 @@
 import { CheckCircle2, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
@@ -41,18 +42,18 @@ const About = () => {
           </div>
 
           {/* Right Column: The GTS Branding Card */}
-          <div className="relative">
+          <Link to="/gts" className="relative block group">
             {/* Decorative background blur */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-electric-violet to-tech-cyan rounded-3xl blur-2xl opacity-20 transform rotate-3"></div>
+            <div className="absolute inset-0 bg-gradient-to-tr from-electric-violet to-tech-cyan rounded-3xl blur-2xl opacity-20 transform rotate-3 group-hover:opacity-30 transition-opacity"></div>
 
-            <div className="relative bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl p-10 shadow-2xl flex flex-col items-center justify-center h-full min-h-[400px]">
+            <div className="relative bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl p-10 shadow-2xl flex flex-col items-center justify-center h-full min-h-[400px] group-hover:bg-white/10 transition-all">
               <p className="text-sm font-bold text-gray-400 tracking-widest uppercase mb-8">Powered By</p>
 
               {/* GTS Logo Image */}
               <img
                 src="/assets/gts-logo.png"
                 alt="Ganda Tech Services"
-                className="w-48 h-auto object-contain mb-8"
+                className="w-48 h-auto object-contain mb-8 group-hover:scale-105 transition-transform"
               />
 
               <div className="text-center">
@@ -61,7 +62,7 @@ const About = () => {
                 </span>
               </div>
             </div>
-          </div>
+          </Link>
 
         </div>
       </div>
