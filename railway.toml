@@ -3,6 +3,6 @@ builder = "nixpacks"
 buildCommand = "npm run build"
 
 [deploy]
-startCommand = "caddy run --config /assets/Caddyfile --adapter caddyfile"
+startCommand = "caddy run --config /app/Caddyfile --adapter caddyfile"
 healthcheckPath = "/"
 healthcheckTimeout = 300
