@@ -1,0 +1,57 @@
+{{!< default}}
+
+<section class="hero">
+    <div class="hero-content">
+        <span class="hero-label">Knowledge Hub</span>
+        <h1 class="hero-title">
+            Engineering <span class="gradient-text">Insights</span>
+        </h1>
+        <p class="hero-description">
+            {{@site.description}}
+        </p>
+    </div>
+</section>
+
+<section class="posts-section">
+    <div class="posts-container">
+        {{#get "posts" filter="featured:true" limit="2" as |featured|}}
+            {{#if featured}}
+            <div class="featured-posts">
+                <h2 class="section-title">Featured</h2>
+                <div class="featured-grid">
+                    {{#foreach featured}}
+                        {{> post-card}}
+                    {{/foreach}}
+                </div>
+            </div>
+            {{/if}}
+        {{/get}}
+
+        <div class="posts-grid">
+            <h2 class="section-title">Latest Articles</h2>
+            <div class="grid">
+                {{#foreach posts}}
+                    {{> post-card}}
+                {{/foreach}}
+            </div>
+        </div>
+
+        {{#if pagination.pages}}
+        <nav class="pagination">
+            {{#if pagination.prev}}
+                <a href="{{pagination.prev}}" class="pagination-btn prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                    Newer
+                </a>
+            {{/if}}
+            <span class="pagination-info">Page {{pagination.page}} of {{pagination.pages}}</span>
+            {{#if pagination.next}}
+                <a href="{{pagination.next}}" class="pagination-btn next">
+                    Older
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+            {{/if}}
+        </nav>
+        {{/if}}
+    </div>
+</section>

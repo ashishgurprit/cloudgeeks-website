@@ -1,0 +1,42 @@
+{{!< default}}
+
+<section class="archive-header author-header">
+    {{#if profile_image}}
+    <img src="{{img_url profile_image size="m"}}" alt="{{name}}" class="author-avatar-xl">
+    {{/if}}
+    <h1 class="archive-title">{{name}}</h1>
+    {{#if bio}}
+    <p class="archive-description">{{bio}}</p>
+    {{/if}}
+    <div class="author-links">
+        {{#if website}}
+        <a href="{{website}}" target="_blank" rel="noopener">Website</a>
+        {{/if}}
+        {{#if twitter}}
+        <a href="https://twitter.com/{{twitter}}" target="_blank" rel="noopener">Twitter</a>
+        {{/if}}
+    </div>
+    <span class="archive-count">{{plural ../pagination.total empty="No posts" singular="% post" plural="% posts"}}</span>
+</section>
+
+<section class="posts-section">
+    <div class="posts-container">
+        <div class="grid">
+            {{#foreach posts}}
+                {{> post-card}}
+            {{/foreach}}
+        </div>
+
+        {{#if pagination.pages}}
+        <nav class="pagination">
+            {{#if pagination.prev}}
+                <a href="{{pagination.prev}}" class="pagination-btn prev">Newer</a>
+            {{/if}}
+            <span class="pagination-info">Page {{pagination.page}} of {{pagination.pages}}</span>
+            {{#if pagination.next}}
+                <a href="{{pagination.next}}" class="pagination-btn next">Older</a>
+            {{/if}}
+        </nav>
+        {{/if}}
+    </div>
+</section>

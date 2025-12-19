@@ -1,0 +1,87 @@
+{{!< default}}
+
+{{#post}}
+<article class="post-full">
+    <header class="post-header">
+        <div class="post-header-content">
+            <div class="post-meta">
+                {{#primary_tag}}
+                    <a href="{{url}}" class="post-tag">{{name}}</a>
+                {{/primary_tag}}
+                <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMMM DD, YYYY"}}</time>
+                <span class="reading-time">{{reading_time}}</span>
+            </div>
+
+            <h1 class="post-title">{{title}}</h1>
+
+            {{#if custom_excerpt}}
+            <p class="post-excerpt">{{custom_excerpt}}</p>
+            {{/if}}
+
+            {{#primary_author}}
+            <div class="post-author">
+                {{#if profile_image}}
+                <img src="{{img_url profile_image size="s"}}" alt="{{name}}" class="author-avatar-large">
+                {{/if}}
+                <div class="author-info">
+                    <a href="{{url}}" class="author-name">{{name}}</a>
+                    {{#if bio}}
+                    <p class="author-bio">{{bio}}</p>
+                    {{/if}}
+                </div>
+            </div>
+            {{/primary_author}}
+        </div>
+    </header>
+
+    {{#if feature_image}}
+    <figure class="post-feature-image">
+        <img src="{{img_url feature_image size="xl"}}" alt="{{title}}">
+        {{#if feature_image_caption}}
+        <figcaption>{{feature_image_caption}}</figcaption>
+        {{/if}}
+    </figure>
+    {{/if}}
+
+    <section class="post-content">
+        {{content}}
+    </section>
+
+    <footer class="post-footer">
+        {{#if tags}}
+        <div class="post-tags">
+            {{#foreach tags}}
+            <a href="{{url}}" class="tag-pill">{{name}}</a>
+            {{/foreach}}
+        </div>
+        {{/if}}
+
+        <div class="post-share">
+            <span class="share-label">Share:</span>
+            <a href="https://twitter.com/intent/tweet?text={{encode title}}&url={{url absolute="true"}}" target="_blank" rel="noopener" class="share-btn twitter">
+                Twitter
+            </a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&title={{encode title}}" target="_blank" rel="noopener" class="share-btn linkedin">
+                LinkedIn
+            </a>
+        </div>
+    </footer>
+</article>
+
+{{#if comments}}
+<section class="post-comments">
+    {{comments}}
+</section>
+{{/if}}
+
+<section class="related-posts">
+    <h2 class="section-title">Continue Reading</h2>
+    <div class="grid">
+        {{#get "posts" filter="id:-{{id}}" limit="3"}}
+            {{#foreach posts}}
+                {{> post-card}}
+            {{/foreach}}
+        {{/get}}
+    </div>
+</section>
+{{/post}}

@@ -1,0 +1,38 @@
+{{!< default}}
+
+<section class="archive-header">
+    <span class="archive-label">Topic</span>
+    <h1 class="archive-title">{{name}}</h1>
+    {{#if description}}
+    <p class="archive-description">{{description}}</p>
+    {{/if}}
+    <span class="archive-count">{{plural ../pagination.total empty="No posts" singular="% post" plural="% posts"}}</span>
+</section>
+
+<section class="posts-section">
+    <div class="posts-container">
+        <div class="grid">
+            {{#foreach posts}}
+                {{> post-card}}
+            {{/foreach}}
+        </div>
+
+        {{#if pagination.pages}}
+        <nav class="pagination">
+            {{#if pagination.prev}}
+                <a href="{{pagination.prev}}" class="pagination-btn prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                    Newer
+                </a>
+            {{/if}}
+            <span class="pagination-info">Page {{pagination.page}} of {{pagination.pages}}</span>
+            {{#if pagination.next}}
+                <a href="{{pagination.next}}" class="pagination-btn next">
+                    Older
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+            {{/if}}
+        </nav>
+        {{/if}}
+    </div>
+</section>

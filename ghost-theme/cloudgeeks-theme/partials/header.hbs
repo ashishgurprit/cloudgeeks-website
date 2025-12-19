@@ -1,0 +1,25 @@
+<header class="site-header">
+    <div class="header-container">
+        <a href="{{@site.url}}" class="site-logo">
+            {{#if @site.logo}}
+                <img src="{{@site.logo}}" alt="{{@site.title}}">
+            {{else}}
+                <span class="logo-text">{{@site.title}}</span>
+            {{/if}}
+        </a>
+
+        <nav class="site-nav">
+            {{navigation}}
+            <a href="https://cloudgeeks.com.au" class="nav-cta" target="_blank" rel="noopener">
+                Main Site
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+            </a>
+        </nav>
+
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
