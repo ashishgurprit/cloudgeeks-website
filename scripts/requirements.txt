@@ -1,0 +1,16 @@
+# Blog Generator Dependencies
+
+# AI/LLM
+anthropic>=0.40.0
+tavily-python>=0.7.0
+
+# Google Cloud (for image generation)
+google-genai>=1.0.0
+google-cloud-aiplatform>=1.114.0
+
+# Ghost API
+PyJWT>=2.8.0
+requests>=2.31.0
+
+# Utilities
+python-dotenv>=1.0.0

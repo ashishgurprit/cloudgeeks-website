@@ -39,70 +39,70 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-hero-gradient relative overflow-hidden">
+    <section id="contact" className="py-24 bg-[#e8eef4] relative overflow-hidden">
       {/* Background Decor */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-electric-violet/5 blur-[100px] pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-violet-500/5 blur-[100px] pointer-events-none"></div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="font-heading font-bold text-3xl md:text-5xl text-white mb-6">
+          <h2 className="font-heading font-bold text-3xl md:text-5xl text-slate-800 mb-6">
             Ready to <span className="text-gradient">digitize your workflow?</span>
           </h2>
-          <p className="text-gray-300 text-lg">
+          <p className="text-slate-600 text-lg">
             Tell us about your project. Our automation system will triage your request and connect you with the right architect immediately.
           </p>
         </div>
 
-        <div className="bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 backdrop-blur-sm">
+        <div className="bg-white border border-slate-200 rounded-3xl p-8 md:p-12 shadow-lg">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-300">Name</label>
+                <label className="text-sm font-medium text-slate-700">Name</label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-electric-violet transition-colors placeholder-gray-600"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20 transition-colors placeholder-slate-400"
                   placeholder="John Doe"
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-300">Company</label>
+                <label className="text-sm font-medium text-slate-700">Company</label>
                 <input
                   type="text"
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
                   required
-                  className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-electric-violet transition-colors placeholder-gray-600"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20 transition-colors placeholder-slate-400"
                   placeholder="Acme Corp"
                 />
               </div>
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-medium text-gray-300">Email (Business)</label>
+              <label className="text-sm font-medium text-slate-700">Email (Business)</label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-electric-violet transition-colors placeholder-gray-600"
+                className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20 transition-colors placeholder-slate-400"
                 placeholder="john@company.com"
               />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-300">I am interested in</label>
+                <label className="text-sm font-medium text-slate-700">I am interested in</label>
                 <select
                   name="interest"
                   value={formData.interest}
                   onChange={handleChange}
-                  className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-electric-violet transition-colors [&>option]:bg-charcoal"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20 transition-colors"
                 >
                   <option>Custom App Development</option>
                   <option>CRM & Marketing Automation</option>
@@ -111,12 +111,12 @@ const Contact = () => {
                 </select>
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-300">Budget Range (Optional)</label>
+                <label className="text-sm font-medium text-slate-700">Budget Range (Optional)</label>
                 <select
                   name="budget"
                   value={formData.budget}
                   onChange={handleChange}
-                  className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-electric-violet transition-colors [&>option]:bg-charcoal"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20 transition-colors"
                 >
                   <option>&lt; $5k</option>
                   <option>$5k - $20k</option>
@@ -129,7 +129,7 @@ const Contact = () => {
             <button
               type="submit"
               disabled={formStatus !== 'idle'}
-              className="w-full bg-accent-gradient text-white font-bold py-4 rounded-xl shadow-lg shadow-electric-violet/25 hover:shadow-electric-violet/40 transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+              className="w-full bg-slate-800 hover:bg-violet-600 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {formStatus === 'idle' && (
                 <>Initialize Enquiry <Send className="w-5 h-5" /></>
@@ -142,7 +142,7 @@ const Contact = () => {
               )}
             </button>
 
-            <p className="text-center text-xs text-gray-500 mt-4">
+            <p className="text-center text-xs text-slate-500 mt-4">
               Your data is secure. We'll respond within 24 hours.
             </p>
           </form>

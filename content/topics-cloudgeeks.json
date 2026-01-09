@@ -1,0 +1,104 @@
+{
+  "site": "cloudgeeks",
+  "description": "Business blog - CloudGeeks service offerings & solutions",
+  "content_pillars": [
+    "AI-Powered Business Solutions",
+    "Digital Transformation Strategies",
+    "Cloud Infrastructure & Migration",
+    "Industry-Specific Solutions",
+    "SMB Technology Optimization"
+  ],
+  "schedule": [
+    {
+      "id": "2025-01-09",
+      "scheduled_date": "2025-01-09",
+      "topic": "How Australian SMBs Can Leverage AI to Compete with Enterprise Giants",
+      "keyword": "AI for Australian SMB",
+      "tags": ["AI Solutions", "SMB", "Australia", "Business"],
+      "pillar": "AI-Powered Business Solutions",
+      "status": "pending"
+    },
+    {
+      "id": "2025-01-11",
+      "scheduled_date": "2025-01-11",
+      "topic": "Cloud Migration Checklist: A Step-by-Step Guide for Small Businesses",
+      "keyword": "cloud migration SMB",
+      "tags": ["Cloud Migration", "Azure", "AWS", "SMB"],
+      "pillar": "Cloud Infrastructure & Migration",
+      "status": "pending"
+    },
+    {
+      "id": "2025-01-14",
+      "scheduled_date": "2025-01-14",
+      "topic": "Automating Your Business Processes: Where to Start with AI",
+      "keyword": "business process automation AI",
+      "tags": ["Automation", "AI", "Business Process", "Efficiency"],
+      "pillar": "AI-Powered Business Solutions",
+      "status": "pending"
+    },
+    {
+      "id": "2025-01-16",
+      "scheduled_date": "2025-01-16",
+      "topic": "The True Cost of Digital Transformation: ROI Analysis for SMBs",
+      "keyword": "digital transformation ROI",
+      "tags": ["Digital Transformation", "ROI", "Investment", "SMB"],
+      "pillar": "Digital Transformation Strategies",
+      "status": "pending"
+    },
+    {
+      "id": "2025-01-18",
+      "scheduled_date": "2025-01-18",
+      "topic": "AI in Healthcare Administration: Streamlining Operations for Medical Practices",
+      "keyword": "AI healthcare administration",
+      "tags": ["Healthcare", "AI", "Medical Practice", "Automation"],
+      "pillar": "Industry-Specific Solutions",
+      "status": "pending"
+    },
+    {
+      "id": "2025-01-21",
+      "scheduled_date": "2025-01-21",
+      "topic": "Azure vs AWS for Australian Businesses: Making the Right Choice",
+      "keyword": "Azure vs AWS Australia",
+      "tags": ["Azure", "AWS", "Cloud", "Australia"],
+      "pillar": "Cloud Infrastructure & Migration",
+      "status": "pending"
+    },
+    {
+      "id": "2025-01-23",
+      "scheduled_date": "2025-01-23",
+      "topic": "Building a Data-Driven Culture: Practical Steps for Growing Businesses",
+      "keyword": "data-driven business culture",
+      "tags": ["Data Analytics", "Business Culture", "Growth"],
+      "pillar": "Digital Transformation Strategies",
+      "status": "pending"
+    },
+    {
+      "id": "2025-01-25",
+      "scheduled_date": "2025-01-25",
+      "topic": "AI for Professional Services: Boosting Productivity in Accounting and Legal Firms",
+      "keyword": "AI professional services",
+      "tags": ["Professional Services", "AI", "Accounting", "Legal"],
+      "pillar": "Industry-Specific Solutions",
+      "status": "pending"
+    },
+    {
+      "id": "2025-01-28",
+      "scheduled_date": "2025-01-28",
+      "topic": "Cybersecurity Essentials: Protecting Your Business in the AI Era",
+      "keyword": "cybersecurity AI era",
+      "tags": ["Cybersecurity", "AI", "Security", "SMB"],
+      "pillar": "SMB Technology Optimization",
+      "status": "pending"
+    },
+    {
+      "id": "2025-01-30",
+      "scheduled_date": "2025-01-30",
+      "topic": "Manufacturing 4.0: AI and IoT Solutions for Australian Manufacturers",
+      "keyword": "manufacturing AI Australia",
+      "tags": ["Manufacturing", "AI", "IoT", "Industry 4.0"],
+      "pillar": "Industry-Specific Solutions",
+      "status": "pending"
+    }
+  ],
+  "updated_at": "2025-01-07T00:00:00Z"
+}

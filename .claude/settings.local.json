@@ -21,7 +21,10 @@
       "Bash(curl:*)",
       "Bash(nslookup:*)",
       "Bash(wrangler:*)",
-      "Bash(npx wrangler:*)"
+      "Bash(npx wrangler:*)",
+      "Bash(powershell Compress-Archive:*)",
+      "Bash(dir \"C:\\\\Users\\\\user\\\\Documents\\\\cloudgeeks website\\\\ghost-theme\\\\cloudgeeks-theme.zip\")",
+      "Bash(git clone:*)"
     ]
   }
 }
