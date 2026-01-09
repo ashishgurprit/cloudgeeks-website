@@ -27,40 +27,40 @@ const Expertise = () => {
   ];
 
   return (
-    <section id="expertise" className="py-24 bg-charcoal relative">
+    <section id="expertise" className="py-24 bg-[#f0f4f8] relative border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="font-heading font-bold text-3xl md:text-5xl text-white mb-4">
+          <h2 className="font-heading font-bold text-3xl md:text-5xl text-slate-800 mb-4">
             Our Expertise
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-600 text-lg max-w-2xl mx-auto">
             Grouped into three logical pillars to avoid overwhelming your users, but deep enough to solve complex problems.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="group p-8 rounded-3xl bg-white/5 border border-white/5 hover:border-white/20 hover:bg-white/10 transition-all duration-300">
-              <div className="mb-6 inline-flex p-4 rounded-2xl bg-black/40">
+            <div key={index} className="group p-8 rounded-3xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all duration-300">
+              <div className="mb-6 inline-flex p-4 rounded-2xl bg-slate-100">
                 <service.icon className={`w-8 h-8 ${service.color}`} />
               </div>
 
-              <h3 className="text-xl font-heading font-bold text-white mb-4">{service.title}</h3>
-              <p className="text-gray-400 mb-6 leading-relaxed">
+              <h3 className="text-xl font-heading font-bold text-slate-800 mb-4">{service.title}</h3>
+              <p className="text-slate-600 mb-6 leading-relaxed">
                 {service.desc}
               </p>
 
               <ul className="space-y-3 mb-8">
                 {service.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center text-sm text-gray-300">
+                  <li key={idx} className="flex items-center text-sm text-slate-600">
                     <span className={`w-1.5 h-1.5 rounded-full mr-2 ${service.color.replace('text-', 'bg-')}`}></span>
                     {feature}
                   </li>
                 ))}
               </ul>
 
-              <Link to="contact" smooth={true} duration={500} className="inline-flex items-center text-white font-medium cursor-pointer group-hover:underline decoration-tech-cyan underline-offset-4">
-                Discuss Strategy <ArrowRight className="ml-2 w-4 h-4 text-tech-cyan" />
+              <Link to="contact" smooth={true} duration={500} className="inline-flex items-center text-slate-800 font-medium cursor-pointer group-hover:underline decoration-cyan-600 underline-offset-4">
+                Discuss Strategy <ArrowRight className="ml-2 w-4 h-4 text-cyan-600" />
               </Link>
             </div>
           ))}

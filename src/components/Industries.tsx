@@ -77,14 +77,14 @@ const Industries = () => {
   ];
 
   return (
-    <section id="industries" className="py-24 bg-geeks-dark relative border-t border-white/5">
+    <section id="industries" className="py-24 bg-white relative border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="text-center mb-16">
-          <h2 className="font-heading font-bold text-3xl md:text-5xl text-white mb-6">
+          <h2 className="font-heading font-bold text-3xl md:text-5xl text-slate-800 mb-6">
             Industry Specific <span className="text-gts-gradient">Solutions</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-600 text-lg max-w-2xl mx-auto">
             We deliver tailored solution packages designed for your specific operational challenges.
           </p>
         </div>
@@ -99,13 +99,13 @@ const Industries = () => {
                 onClick={() => setActiveTab(index)}
                 className={`text-left p-6 rounded-2xl transition-all duration-300 border flex items-center gap-4 group ${
                   activeTab === index
-                    ? 'bg-white/10 border-white/20'
-                    : 'bg-transparent border-transparent hover:bg-white/5'
+                    ? 'bg-slate-100 border-slate-300 shadow-sm'
+                    : 'bg-transparent border-transparent hover:bg-slate-50'
                 }`}
               >
-                <pkg.icon className={`w-6 h-6 ${activeTab === index ? pkg.color : 'text-gray-500'}`} />
+                <pkg.icon className={`w-6 h-6 ${activeTab === index ? pkg.color : 'text-slate-400'}`} />
                 <div>
-                  <h3 className={`font-bold text-sm uppercase tracking-wider ${activeTab === index ? 'text-white' : 'text-gray-500 group-hover:text-gray-300'}`}>
+                  <h3 className={`font-bold text-sm uppercase tracking-wider ${activeTab === index ? 'text-slate-800' : 'text-slate-500 group-hover:text-slate-700'}`}>
                     {pkg.title}
                   </h3>
                 </div>
@@ -115,9 +115,9 @@ const Industries = () => {
 
           {/* Content Card */}
           <div className="relative">
-             <div className={`absolute inset-0 blur-[100px] opacity-20 transition-colors duration-500 ${packages[activeTab].bg}`}></div>
+             <div className={`absolute inset-0 blur-[100px] opacity-10 transition-colors duration-500 ${packages[activeTab].bg}`}></div>
 
-            <div className="relative bg-black/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 h-full flex flex-col justify-center">
+            <div className="relative bg-slate-800 border border-slate-700 rounded-3xl p-8 md:p-12 h-full flex flex-col justify-center shadow-xl">
 
               <div className="mb-8">
                 <span className={`text-xs font-bold uppercase tracking-widest ${packages[activeTab].color}`}>
@@ -126,7 +126,7 @@ const Industries = () => {
                 <h3 className="text-3xl md:text-4xl font-heading font-bold text-white mt-2 mb-4">
                   {packages[activeTab].name}
                 </h3>
-                <p className="text-xl text-gray-400 leading-relaxed">
+                <p className="text-xl text-slate-300 leading-relaxed">
                   {packages[activeTab].desc}
                 </p>
               </div>
@@ -137,18 +137,18 @@ const Industries = () => {
                     <div className={`p-1 rounded-full bg-white/10 ${packages[activeTab].color}`}>
                         <Check className="w-3 h-3" />
                     </div>
-                    <span className="text-gray-300 font-medium">{feature}</span>
+                    <span className="text-slate-200 font-medium">{feature}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row gap-6 items-center justify-between">
-                <div className="text-sm text-gray-500">
+              <div className="pt-8 border-t border-slate-600 flex flex-col md:flex-row gap-6 items-center justify-between">
+                <div className="text-sm text-slate-400">
                     Includes: Implementation | Training | 24/7 Support
                 </div>
                 <button
                   onClick={() => setShowModal(true)}
-                  className="px-8 py-3 bg-white text-black font-bold rounded-full hover:bg-gray-200 transition-colors flex items-center gap-2"
+                  className="px-8 py-3 bg-white text-slate-800 font-bold rounded-full hover:bg-slate-100 transition-colors flex items-center gap-2"
                 >
                     View Case Study <ArrowRight className="w-4 h-4" />
                 </button>
