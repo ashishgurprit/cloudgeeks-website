@@ -1,18 +1,28 @@
 @import "tailwindcss";
 
 @theme {
-  /* Core CloudGeeks Monochrome */
-  --color-geeks-black: #000000;
-  --color-geeks-dark: #0a0a0a;
-  --color-geeks-gray: #e5e5e5;
+  /* Light Theme - Cool Blue-Gray */
+  --color-bg: #f0f4f8;
+  --color-bg-secondary: #e8eef4;
+  --color-bg-card: #ffffff;
+  --color-bg-footer: #1e293b;
+
+  /* Text colors for light bg */
+  --color-text-primary: #1e293b;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748b;
+  --color-text-light: #94a3b8;
 
   /* Legacy colors (for compatibility) */
-  --color-charcoal: #000000;
-  --color-charcoal-light: #0a0a0a;
+  --color-geeks-black: #1e293b;
+  --color-geeks-dark: #334155;
+  --color-geeks-gray: #e5e5e5;
+  --color-charcoal: #1e293b;
+  --color-charcoal-light: #334155;
 
-  /* GTS Accents (Used sparingly) */
+  /* GTS Accents */
   --color-electric-violet: #8B5CF6;
-  --color-tech-cyan: #06B6D4;
+  --color-tech-cyan: #0891b2;
   --color-gts-orange: #f59e0b;
 
   /* Fonts */
@@ -23,26 +33,26 @@
 /* Custom Gradients */
 @layer utilities {
   .bg-accent-gradient {
-    background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%);
+    background: linear-gradient(135deg, #8B5CF6 0%, #0891b2 100%);
   }
 
   .bg-gts-gradient {
-    background: linear-gradient(90deg, #8B5CF6 0%, #f59e0b 50%, #06B6D4 100%);
+    background: linear-gradient(90deg, #8B5CF6 0%, #f59e0b 50%, #0891b2 100%);
   }
 
   .bg-hero-gradient {
-    background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
+    background: linear-gradient(180deg, #f0f4f8 0%, #e8eef4 100%);
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%);
+    background: linear-gradient(135deg, #8B5CF6 0%, #0891b2 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .text-gts-gradient {
-    background: linear-gradient(90deg, #8B5CF6 0%, #f59e0b 50%, #06B6D4 100%);
+    background: linear-gradient(90deg, #8B5CF6 0%, #f59e0b 50%, #0891b2 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -56,8 +66,8 @@ html {
 body {
   margin: 0;
   font-family: var(--font-family-sans);
-  background-color: #000000;
-  color: #ffffff;
+  background-color: var(--color-bg);
+  color: var(--color-text-secondary);
 }
 
 /* Scrollbar Styling */
@@ -66,14 +76,14 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: var(--color-bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333333;
+  background: #94a3b8;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555555;
+  background: #64748b;
 }
