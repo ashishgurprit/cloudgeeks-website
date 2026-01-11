@@ -1,8 +1,12 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Send, CheckCircle, Loader2 } from 'lucide-react';
 
+// Cloudflare Worker endpoint for form submission
+const FORM_SUBMIT_URL = 'https://cloudgeeks-form.ashish-ganda.workers.dev';
+
 const Contact = () => {
-  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -10,6 +14,7 @@ const Contact = () => {
     interest: 'Custom App Development',
     budget: '< $5k'
   });
+  const turnstileRef = useRef<HTMLDivElement>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,24 +23,63 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus('submitting');
+    setErrorMessage('');
 
-    // TODO: Replace with actual webhook URL (Zapier/Make.com)
-    // const webhookUrl = 'https://hooks.zapier.com/hooks/catch/...';
-    // await fetch(webhookUrl, {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(formData)
-    // });
+    try {
+      // Get Turnstile token
+      const turnstileToken = (window as any).turnstile?.getResponse(turnstileRef.current);
 
-    // Simulation for now
-    setTimeout(() => {
-      setFormStatus('success');
-      console.log('Form submitted:', formData);
-      setTimeout(() => {
-        setFormStatus('idle');
-        setFormData({ name: '', company: '', email: '', interest: 'Custom App Development', budget: '< $5k' });
-      }, 3000);
-    }, 1500);
+      if (!turnstileToken) {
+        setErrorMessage('Please complete the spam verification.');
+        setFormStatus('error');
+        return;
+      }
+
+      // Submit to Cloudflare Worker
+      const response = await fetch(FORM_SUBMIT_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          turnstileToken,
+          formData: {
+            ...formData,
+            source: 'cloudgeeks-website',
+            timestamp: new Date().toISOString(),
+          }
+        })
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setFormStatus('success');
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          setFormStatus('idle');
+          setFormData({ name: '', company: '', email: '', interest: 'Custom App Development', budget: '< $5k' });
+          if ((window as any).turnstile && turnstileRef.current) {
+            (window as any).turnstile.reset(turnstileRef.current);
+          }
+        }, 3000);
+      } else {
+        setErrorMessage(result.error || 'Failed to submit form. Please try again.');
+        setFormStatus('error');
+        // Reset Turnstile on error
+        if ((window as any).turnstile && turnstileRef.current) {
+          (window as any).turnstile.reset(turnstileRef.current);
+        }
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setErrorMessage('Network error. Please check your connection and try again.');
+      setFormStatus('error');
+      // Reset Turnstile on error
+      if ((window as any).turnstile && turnstileRef.current) {
+        (window as any).turnstile.reset(turnstileRef.current);
+      }
+    }
   };
 
   return (
@@ -126,13 +170,31 @@ const Contact = () => {
               </div>
             </div>
 
+            {/* Cloudflare Turnstile Widget */}
+            <div
+              ref={turnstileRef}
+              className="cf-turnstile"
+              data-sitekey="0x4AAAAAACL6iirwP7c-dYYc"
+              data-theme="light"
+            ></div>
+
+            {/* Error message */}
+            {errorMessage && (
+              <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                {errorMessage}
+              </div>
+            )}
+
             <button
               type="submit"
-              disabled={formStatus !== 'idle'}
+              disabled={formStatus === 'submitting'}
               className="w-full bg-slate-800 hover:bg-violet-600 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {formStatus === 'idle' && (
                 <>Initialize Enquiry <Send className="w-5 h-5" /></>
+              )}
+              {formStatus === 'error' && (
+                <>Try Again <Send className="w-5 h-5" /></>
               )}
               {formStatus === 'submitting' && (
                 <><Loader2 className="w-5 h-5 animate-spin" /> Processing...</>
