@@ -50,6 +50,59 @@
     <!-- Canonical -->
     <link rel="canonical" href="https://cloudgeeks.com.au/" />
 
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="AU-NSW" />
+    <meta name="geo.placename" content="Bella Vista" />
+    <meta name="geo.position" content="-33.7630;150.9927" />
+    <meta name="ICBM" content="-33.7630, 150.9927" />
+
+    <!-- Structured Data - Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "CloudGeeks",
+      "url": "https://cloudgeeks.com.au",
+      "logo": "https://cloudgeeks.com.au/assets/cloudgeek icon.png",
+      "description": "Premier software engineering consultancy specializing in AI solutions, cloud infrastructure, and digital transformation",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "8 Elizabeth Macarthur Drive",
+        "addressLocality": "Bella Vista",
+        "addressRegion": "NSW",
+        "postalCode": "2153",
+        "addressCountry": "AU"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -33.7630,
+        "longitude": 150.9927
+      },
+      "areaServed": {
+        "@type": "State",
+        "name": "New South Wales"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "areaServed": "AU",
+        "availableLanguage": ["English"]
+      }
+    }
+    </script>
+
+    <!-- Structured Data - Website Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "CloudGeeks",
+      "url": "https://cloudgeeks.com.au",
+      "description": "Software engineering consultancy specializing in AI solutions and cloud infrastructure",
+      "inLanguage": "en-AU"
+    }
+    </script>
+
     <!-- Cloudflare Turnstile for spam protection -->
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   </head>
